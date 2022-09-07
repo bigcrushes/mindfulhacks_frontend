@@ -93,7 +93,9 @@ const rows = [
 
 const CustomPaginationActionsTable = (props) => {
   const location = useLocation();
-  const state = location;
+  const state = location.state;
+  const name = state.name;
+  const id = state.id;
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
@@ -113,7 +115,7 @@ const CustomPaginationActionsTable = (props) => {
 
   return (
     <div>
-    <div><h1 style={{ fontFamily: "Arial" }}>Name</h1></div>  
+    <div><h1 style={{ fontFamily: "Arial" }}>{name}</h1></div>  
     
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 500 }} aria-label="custom pagination table">
@@ -133,9 +135,9 @@ const CustomPaginationActionsTable = (props) => {
                   {row.date}
                 </TableCell>
                 <TableCell style={{ width: 150 }}>
-                <Link to={{pathname: "/journalentry", props: {
+                <Link to={"/journalentry"} state={{
                   title: row.title, id: row.id
-                }}}>
+                }}>
                   {row.title}
                   </Link>
                 </TableCell>

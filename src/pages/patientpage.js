@@ -129,7 +129,9 @@ export default function CustomPaginationActionsTable() {
             
             <TableRow key={row.name} style={{ textDecoration: 'none' }}>
               <TableCell component="th" scope="row">
-              <Link to="/journal" state={{name: row.name, id: row.id}}>
+              <Link to={"/journal"} state={{
+                  name: row.name, id: row.id
+                }}>
                 {row.name}
                 </Link>
               </TableCell>
